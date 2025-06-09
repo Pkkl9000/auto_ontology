@@ -1,0 +1,28 @@
+{text}
+Object to Analyze: {subject}
+
+Instructions:
+
+Strictly use object as source (even if the text uses synonyms).
+
+Only extract DIRECT relations (e.g., for atom → nucleus → proton, return atom → nucleus, not atom → proton).
+
+Precise relation types:
+
+Use has_part for components.
+
+Use verbs (e.g., revolve_around) for process.
+
+Avoid vague terms like "related_to".
+
+Include process relations (e.g., movement, interactions).
+
+Skip redundant/indirect relations (e.g., unit → proton is invalid).
+
+Example for atom:
+
+json
+{"source": "atom", "target": "electron", "relation": "has_part", "attribute": "", "statement": "An atom consists of... electrons", "category": "structural"}
+{"source": "electron", "target": "nucleus", "relation": "revolves_around", "attribute": "", "statement": "Electrons revolve around the nucleus", "category": "process"}
+
+/no_think

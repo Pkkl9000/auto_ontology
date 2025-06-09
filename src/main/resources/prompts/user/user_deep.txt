@@ -1,0 +1,27 @@
+Chemical text:
+{text}
+
+Object to Analyze: {subject}
+
+Task: Extract all possible relations involving object from the given text. Format each relation as a JSON-like entry (one per line) with the following fields:
+
+source (must be object or its synonym)
+
+target (the connected entity/property)
+
+relation (type of connection)
+
+attribute (if applicable)
+
+statement (supporting sentence)
+
+category (relation type)
+
+Example Output:
+
+json
+{"source": "atom", "target": "nucleus", "relation": "contains", "attribute": "", "statement": "An atom contains a nucleus", "category": "structural"}
+{"source": "atom", "target": "small", "relation": "has_property", "attribute": "", "statement": "Atoms are small", "category": "property"}
+
+Now process the provided text and object.
+/no_think

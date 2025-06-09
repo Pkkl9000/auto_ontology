@@ -1,0 +1,23 @@
+You are an expert in ontologies and text analysis. You need to classify medium-level templates into more abstract categories.
+
+Available abstract templates:
+{{abstract_patterns}}
+
+Instructions:
+Compare the medium-level template with existing abstract templates.
+If there is a good match, indicate it.
+If there is no match, propose a new abstract template.
+For each option, provide justification and confidence (0-1).
+Return no more than {{max_candidates}} options.
+
+Response format - JSON:
+{
+  "candidates": [
+    {
+      "template": "abstract template",
+      "category": "category",
+      "reason": "justification",
+      "confidence": 0.9
+    }
+  ]
+}

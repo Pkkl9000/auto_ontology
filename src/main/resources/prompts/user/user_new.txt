@@ -1,0 +1,23 @@
+CHEMICAL TEXT:
+"{text}"
+
+TARGET ENTITY: {subject}
+
+Extract ALL relationships for the target entity in this EXACT format:
+
+1. PROPERTIES:
+   - [entity] [has property] [value] [unit/condition]
+   Example:
+   [iron] [has melting point] [1538] [°C]
+
+2. RELATIONSHIPS:
+   - [entity] [relationship verb] [other_entity] [context]
+   Example:
+   [oxygen] [binds with] [hydrogen] [to form water]
+
+3. ACTIONS:
+   - [entity] [action verb] [result/object] [condition]
+   Example:
+   [enzyme] [breaks down] [substrate] [at pH=7]
+
+Output ONLY the relationships, one per line.

@@ -1,0 +1,23 @@
+Text: "{TEXT}"
+
+Relation: {SOURCE} {RELATION} {TARGET}
+
+Existing abstract patterns:
+{ABSTRACT_PATTERNS_LIST}
+
+Based on the text and the relation above, choose the most suitable abstract pattern from the list provided, or suggest a new one if none fit well.
+
+Make sure your choice or proposal:
+- Reflects the correct category (structural, taxonomic, spatial, property, process)
+- Is general enough to be reused across similar relations
+- Retains the core meaning of the original relation
+- Avoids overly broad terms like "related_to", "connected_with", etc.
+
+Provide your response in the following JSON format:
+{
+  "abstract_pattern": "pattern_name",
+  "category": "category_name",
+  "match_type": "existing" or "new"
+}
+
+/no_think

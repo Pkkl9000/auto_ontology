@@ -1,0 +1,7 @@
+Medium-level template for analysis:
+
+Template: {{pattern_template}}
+Example: {{pattern_example}}
+Category: {{pattern_category}}
+Analyze this template and propose abstract options for its representation.
+/no_think

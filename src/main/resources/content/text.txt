@@ -1,0 +1,5 @@
+An atom is a basic unit of matter that consists of a central nucleus surrounded by negatively charged electrons. The nucleus contains protons and neutrons. Electrons revolve around the nucleus in different orbits.
+The constituent particles of an atom are called subatomic particles. They mainly include protons, electrons and neutrons. The electron is the least massive of these particles at 9.11×10−31 kg with a negative charge. Protons have a positive charge and Neutrons have no electrical charge.
+The central part of an atom is called nucleus. Particles present inside the nucleus are called nucleons and they include mainly protons and neutrons. Due to the presence of protons nucleus has a positive charge.
+Molecules are made of atoms of one or more elements. Some molecules are made only by one type of atoms (two oxygen atoms bond together to form O2 molecule) while molecules like protein are made up of atoms from different elements.
+A chemical element is a pure chemical substance consisting of one type of atom distinguished by its atomic number. Carbon, Oxygen, Silicon, Arsenic, Aluminum, Iron, Copper, Gold, Mercury etc are all examples of elements.

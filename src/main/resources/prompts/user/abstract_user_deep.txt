@@ -1,0 +1,31 @@
+Text: {text}
+Specific Relation to Abstract:
+json
+{"source": "{source_entity}", "target": "{target_entity}", "relation": "{specific_verb}", "attribute": {attribute}, "category": "{category}"}
+
+Existing Abstract Patterns (comma-separated):
+{existing_patterns}
+
+Task:
+Analyze the specific relation in its textual context.
+
+Either:
+Select the closest existing pattern from the list (adjusting category if needed), or propose a new pattern if none fit well (avoid vagueness!).
+
+Justify your choice with <50 words.
+
+Example Existing Patterns Input:
+has_part, exhibits_property, orbits, located_inside
+
+Output Only JSON (no commentary):
+
+json
+{
+  "abstract_pattern": "...",
+  "category": ["..."],
+  "confidence": 0.0-1.0,
+  "reason": "...",
+  "is_new": false
+}
+
+/no_think

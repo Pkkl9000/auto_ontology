@@ -1,0 +1,139 @@
+Enhanced Ontology Extraction Prompt (v3)
+Text:
+{text}
+
+Object to Analyze: {subject}
+
+Comprehensive Relation Types:
+
+-Core Relations:
+has_part / made_of (structural composition)
+is_a / type_of (taxonomic hierarchy)
+acts_as / functions_as (functional roles)
+has_property (attributes/characteristics)
+
+Special Cases:
+
+Measurement units: unit_of → measures
+
+Spatial relations: located_in / adjacent_to
+
+Processes: [verb]_[preposition] (e.g., revolves_around)
+
+Strict Extraction Rules:
+
+Directness Requirement:
+✓ Valid: "A contains B" → A→B
+✗ Invalid: "A contains B containing C" → A→C
+
+Evidence-Based Linking:
+
+Properties require explicit descriptors ("green apple")
+
+Roles require functional markers ("unit of matter")
+
+Processes require action verbs ("electrons move")
+
+Category Enforcement:
+
+Category	Triggers	Examples
+structural	"consists of", "composed of"	cell→membrane
+functional	"acts as", "serves as"	unit→measurement
+property	adjectives, characteristics	apple→green
+process	action verbs	electrons→revolve_around
+Output Format (JSON Lines):
+
+json
+{"source": "{subject}", "target": "X", "relation": "exact_relationship", "attribute": "modifier_if_any", "statement": "full_source_sentence", "category": "specific_type"}
+
+
+
+
+
+
+
+
+Key Rules to Follow:
+
+Direct Relations Only
+Extract ONLY where {object} directly connects to target
+Example: For "A contains B containing C" → Only A→B is valid
+
+Category Guide:
+Structural: Parts/whole ("has_part", "made_of")
+Process: Actions ("rotates", "binds_to")
+Taxonomic: Classification ("is_a", "type_of")
+Spatial: Positions ("inside", "adjacent_to")
+Required Format (JSON per line):
+
+json
+{"source": "{object}", "target": "X", "relation": "exact_phrase", "category": "...", "statement": "full_sentence"}
+
+Bad Relation Examples to Avoid:
+Indirect: atom→proton (when text says atom→nucleus→proton)
+
+Implied: water→wet (unless explicitly stated)
+
+If No Valid Relations:
+json
+{"status": "no_valid_relations", "object": "{object}"}
+
+/no_think
+
+
+Extended Relation Types:
+
+Direct Object Relations:
+
+has_part, contains, connected_to
+
+Example: cell → nucleus
+
+Property Relations:
+
+has_property, has_characteristic
+
+Example: apple → green, atom → basic
+
+Functional Role Relations:
+
+acts_as, functions_as, serves_as
+
+Example: unit → measurement (from "unit of matter")
+
+Taxonomic Relations:
+
+is_a, type_of, category_of
+
+Extraction Rules:
+
+Extract ALL relation types, not just object-object
+
+For properties: use exact wording from text
+
+Preserve contextual modifiers (e.g., "basic" in "basic unit")
+
+Include prepositional relationships (e.g., "unit of matter")
+
+Output Format:
+
+json
+{"source": "{object}", "target": "X", "relation": "relation_type", "attribute": "", "statement": "full_sentence", "category": "..."}
+Special Cases Handling:
+
+For measurement/functional terms:
+
+json
+{"source": "unit", "target": "measurement", "relation": "functions_as", "attribute": "basic", "statement": "An atom is a basic unit of matter", "category": "functional"}
+For properties:
+
+json
+{"source": "apple", "target": "green", "relation": "has_property", "attribute": "", "statement": "green apple", "category": "property"}
+For implied relationships:
+
+json
+{"source": "electron", "target": "negative", "relation": "has_charge", "attribute": "", "statement": "negatively charged electrons", "category": "property"}
+When No Relations Found:
+
+json
+{"status": "no_valid_relations", "object": "{object}", "reason": "no_direct_connections"}

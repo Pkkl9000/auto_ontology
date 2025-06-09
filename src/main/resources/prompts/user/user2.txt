@@ -1,0 +1,90 @@
+Analyze the following chemistry text and identify all structural relationships and properties using the provided standard templates:
+
+Text: "{input_text}"
+Noun Chunks: {noun_chunks}
+
+Standard Templates to Apply:
+1. is_a (Taxonomic Hierarchy):
+   - Pattern: "X is a Y" → {"type": "is_a", "source": "X", "target": "Y"}
+   - Example: "An atom is a basic unit" → atom is_a basic unit
+
+2. has_part (Meronymic Relationship):
+   - Pattern: "X consists of Y", "X contains Y" → {"type": "has_part", "source": "X", "target": "Y"}
+   - Example: "Atom consists of nucleus" → atom has_part nucleus
+
+3. has_property (Attribute Assignment):
+   - Pattern: "X has Y", "X is Y" → {"type": "has_property", "source": "X", "property": "Y", "value": true}
+   - Example: "Electrons are negatively charged" → electrons has_property charge:negative
+
+Required Output Format:
+```json
+{
+  "concrete": {
+    "relations": [
+      {
+        "source": "subject1",
+        "target": "subject2",
+        "type": "template_id",
+        "evidence": "exact_text_span",
+        "confidence": 0.0-1.0
+      }
+    ],
+    "properties": [
+      {
+        "subject": "subject_name",
+        "property": "property_name",
+        "value": "property_value",
+        "evidence": "text_fragment"
+      }
+    ]
+  }
+}
+Please:
+
+Find ALL possible applications of these templates
+Include exact text spans as evidence
+Mark confidence for inferred relationships (0.6-0.8)
+Skip relations that don't fit these templates
+
+From the same chemistry text, propose new abstract patterns based on these examples:
+
+Example Patterns:
+1. Spatial Relation:
+   - Template: "X surrounded by Y → surrounds(X, Y)"
+   - Sample: "nucleus surrounded by electrons" → surrounds(nucleus, electrons)
+   - Category: spatial_arrangement
+
+2. Interaction:
+   - Template: "X reacts with Y forming Z → chemical_reaction(X, Y, Z)"
+   - Sample: "hydrogen reacts with oxygen forming water" → chemical_reaction(H2, O2, H2O)
+   - Category: chemical_interaction
+
+3. Quantitative:
+   - Template: "X has Y [value] Z → quantitative_property(X, Y, Z)"
+   - Sample: "water has density 1g/cm³" → quantitative_property(water, density, 1g/cm³)
+   - Category: physical_property
+
+Text: "{input_text}"
+Noun Chunks: {noun_chunks}
+
+Required Output Format:
+```json
+{
+  "abstract": {
+    "new_patterns": [
+      {
+        "template": "X verb Y → relation(X,Y)",
+        "example": "actual_usage_from_text",
+        "category": "pattern_type",
+        "confidence": 0.0-1.0
+      }
+    ]
+  }
+}
+Guidelines:
+
+Propose only 2-3 most promising new patterns
+Specify patternEntity category (spatial/interaction/quantitative/etc)
+Include confidence score
+Make patterns maximally reusable
+/no_think

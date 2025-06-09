@@ -1,0 +1,5 @@
+Text: "{text}"
+
+Object: "{subject}"
+
+Using the text above and focusing on the object "{OBJECT}", extract all possible semantic relationships according to the system instructions. Return a list of Relation objects in JSON format.
