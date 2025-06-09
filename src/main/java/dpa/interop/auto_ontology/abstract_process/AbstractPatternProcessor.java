@@ -168,7 +168,7 @@ public class AbstractPatternProcessor {
                     .trim();
 
             // Извлекаем самый внутренний JSON объект
-            Matcher matcher = Pattern.compile("\\{(?:[^{}]|\\{(?:[^{}]|\\{[^{}]*\\})*\\}").matcher(json);
+            Matcher matcher = Pattern.compile("\\{(?:[^{}]|\\{(?:[^{}]|\\{[^{}]*\\})*\\})").matcher(json);
             if (matcher.find()) {
                 String pureJson = matcher.group();
                 ObjectMapper mapper = new ObjectMapper()
