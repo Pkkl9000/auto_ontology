@@ -5,7 +5,7 @@ Ontology Builder with LLM
 
 Модель LLM задаётся в LLMAssistant
 
-Консоль базы (H2):
+Консоль базы (H2):  
 http://localhost:8084/h2-console  
 application.properties:  
 server.port=8084  
